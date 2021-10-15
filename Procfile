@@ -1,1 +1,1 @@
-web: gunicorn Nkunzi.wsgi
+web: gunicorn nkunzi.wsgi
