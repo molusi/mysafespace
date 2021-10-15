@@ -165,7 +165,8 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-STATIC_ROOT = 'static_root'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 django_heroku.settings(locals())
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Static files (CSS, JavaScript, Images)
