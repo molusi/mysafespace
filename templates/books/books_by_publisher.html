@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}ACME books{% endblock %}
+{% block content %}
+{% include 'books/navbar.html' %}
+<div class="container">
+    <div class="row">
+     <div class="col m-1">
+<ul class="list-unstyled" >
+    <h2>***{{book.publisher}} books</h2>
+{% for book in books %}
+    <li><p>{{ book.title }},***,{{ book.publication_date }},Date published: {{ book.publication_date}}</p></li>
+
+{% endfor %}
+ </ul>
+         </div>
+ </div>
+</div>
+{{ publisher.name }}
+{{ publisher.website }}
+{% endblock %}

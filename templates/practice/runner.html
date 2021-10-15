@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Runner</title>
+
+</head>
+<body>
+<ul>
+{% for item in runners %}
+
+<li>{{ forloop.counter }} - {{ item.get_medal_display }}</li>
+
+{% endfor %}
+ </ul>
+<form method="POST" action="#">
+    {% csrf_token %}
+
+    name:{{ form.name }}
+
+    Shirt size:{{ form.medal }}
+    <input type="submit" value="save">
+</form>
+</body>
+</html>

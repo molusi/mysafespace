@@ -1,0 +1,67 @@
+{% extends 'blog/index.html' %}
+{% load static %}
+{% static "images" as baseUrl %}
+{% block content %}
+
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+    <button onclick="cloze()" type="button" class="btn close cloze" data-dismiss="alert" aria-label="close"><span
+            aria-hidden="true"><b>x</b></span></button>
+    {{ message }}
+</div>
+{% endfor %}
+{% endif %}
+<div class="container my-5" style="height:150vh;margin;max-width:90%">
+
+<div class="row">
+    {% if article.image %}
+    <div class="col-md-4 ">
+        <h1 class="card-title"><center>{{ article.title }}</center></h1>
+
+        <a href="{{ article.image.url }}" target="_blank"><img class="card-img-top" src="{{ article.image.url }}" width="200px" height="350px" alt="..."/></a>
+
+    </div>
+  <div class="col-md-8 px-4 py-4" >
+        {{ article.content }}
+    </div>
+<div class="card-body">
+    <div class="small text-muted">{{ article.created }}
+        <small> <a href="{% url 'blog:existingprofile' article.author.user.id  %}" target=_blank">
+            Author: {{ article.author.preffered_name }}</a></small>
+    </div>
+</div>
+</div>
+     {% else %}
+    <div class="row mb-5">
+        <div >
+        <h1 class="card-title mx-5" >{{ article.title }}</h1>
+        <div class="col-md-8 px-4 py-4" >
+        {{ article.content }}
+            <div class="card-body">
+    <div class="small text-muted">{{ article.created }}
+        <small> <a href="{% url 'blog:existingprofile' article.author.user.id  %}" target=_blank">
+            Author: {{ article.author.preffered_name }}</a></small>
+    </div>
+</div>
+    </div>
+{% endif %}
+
+
+<div class="col-md-3" style="display:flex;justify-content:space-around;align-items:center">
+    <a href="{{request.META.HTTP_REFERER|escape}}">Back</a><a href="{% url 'blog:home' %}" >Home</a>
+    {% if request.user.email == article.author.user.email %}
+
+    <span><a href="{% url 'blog:update' article.pk %}">update</a></span><span><a
+        href="{% url 'blog:delete' article.pk %}">delete</a></span>
+
+    {% endif %}
+</div>
+            </div>
+
+  </div>
+</div>
+
+
+
+{% endblock %}

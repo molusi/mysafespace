@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact Us{% endblock %}
+{% block content %}
+{% include 'books/navbar.html' %}
+<div class="row">
+<center><h1 class="heading mb-5">Contact us</h1></center>
+</div>
+<div class="container">
+    <div class="row">
+
+    </div>
+    <div class="col-md-12">
+<form action="." method="POST">
+    {% csrf_token %}
+
+    <table>
+                    <tbody>
+                    <tr>
+                        <th>Kind of feedback:</th>
+                        <td>{{ form.topic }}</td>
+                    </tr>
+                    <tr><td></td></tr>
+                    <tr>
+                        <th><label>Your message:</label></th>
+                        <td>{{ form.message }}</td>
+
+
+                    </tr>
+                    <tr><td></td></tr>
+                    <tr>
+                      <th><label>Your email (optional):</label></th>
+                                  <td> {{ form.sender }}</td>
+                    </tr>
+                    <tr><td></td></tr>
+                    </tbody>
+
+
+    </table>
+    <button class="btn btn-primary" type="submit" >submit</button>
+
+    </form>
+    </div>
+    </div>
+ {% endblock %}
+
+<!--    <div class="fieldWrapper">-->
+<!--        {{ form.topic.errors }}-->
+<!--        <label for="id_topic">Kind of feedback:</label>-->
+<!--        {{ form.topic }}-->
+<!--    </div>-->
+
+<!--    <div class="fieldWrapper">-->
+<!--        {{ form.message.errors }}-->
+<!--        <label for="id_message">Your message:</label>-->
+<!--        {{ form.message}}-->
+<!--    </div>-->
+<!--    <div class="fieldWrapper">-->
+<!--        {{ form.sender.errors }}-->
+<!--        <label for="id_sender">Your email (optional):</label>-->
+<!--        {{ form.sender }}-->
+<!--    </div>-->
+
+
+

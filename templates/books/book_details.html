@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title%}books_app{% endblock %}
+{% block content %}
+{% include 'books/navbar.html' %}
+<div class="container">
+    <div class="row">
+        <div class="col m-1">
+            <h4 style="text-decoration:underline" class="pb-2 mb-2 mt-3">{{ book.title }}</h4>
+
+                <p class="p-0 mb-0"><b>{% for author in book.authors.all %} Written by:<a href="{% url 'books:author_detail' author.pk %}" target="_blank">{{author}}</a>  {% endfor %}, Published by: <a href="{{ book.publisher.get_absolute_url }}" target="_blank">{{ book.publisher }}</a>,
+                     Date published: {{ book.publication_date}}</b>
+                </p>
+            <a href="{{ book.book.url }}" target="_blank">pdf</a>
+
+
+
+        </div>
+        <a href="../" style="font-size:0.9rem">Go back</a>
+
+    </div>
+</div>
+
+{% endblock %}

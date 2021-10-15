@@ -1,0 +1,67 @@
+{% extends 'blog/index.html' %}
+{% load static %}
+{% static "images" as baseUrl %}
+{% block content %}
+
+
+<div class="container" style="height:100vh;margin:0 auto;width:85%">
+    <div class="row">
+        <div class="col-md-8 mt-4 mx-0">
+
+            <div class="content-section">
+                <div class="media col-md-4"
+                     style="display:flex;flex-direction:column;justify-content:center;align-items:center">
+                    <b>{{ userprofile.preffered_name|title }}</b>
+                    <img class="rounded-cirle " src="{{ userprofile.profilepic.url }}"
+                         style="width:200px;height:200px;border-radius:50%;">
+
+
+                    <p class="text-secondary my-2">{{ userprofile.about }}</p>
+                    <div class="col-md-6">
+                       {% if userprofile.twitter %}
+                        <a href="{{userprofile.twitter}}" target="_blank"> <i class="bi bi-twitter mt-0 px-2 mb-3"
+                                                                              style="font-size:1.5rem"></i></a>{% endif %}<span>{% if userprofile.instagram %}<a
+                            href="{{userprofile.instagram}}" target='_blank'><i class="bi bi-instagram px-2 mt-0 mb-3"
+                                                                                style="font-size:1.5rem;color:orangered"></i></a></span>
+                        {% endif %}
+
+
+                        {% if userprofile.user.email == request.user.email %}
+                        <a href="{% url 'blog:userprofile_update' userprofile.id %}" style="font-size:0.8em;display:block" class="mt-3 mx-2"></b>
+                            Edit</a>
+
+                        {% else %}
+                        <a href="{{request.META.HTTP_REFERER|escape}}">Back</a>
+                        <a href="/.." style="margin-left:1em">Home</a>
+                        {% endif %}
+                    </div>
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+        {% if result %}
+        <div class="col md-6 mt-5 px-3 mx-3">
+            <div class="row"><h1>Posts</h1>
+                <ol>
+                    {% for article in result %}
+
+
+                    <li class="bold"><h4><a href="{{ article.get_absolute_url }}" target="_blank">
+                        {{ article.title|title }}</a></h4></li>
+
+
+                    {% endfor %}
+
+                </ol>
+            </div>
+        </div>
+        {% endif %}
+
+    </div>
+</div>
+
+{% endblock %}

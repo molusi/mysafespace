@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title%}books_app{% endblock %}
+{% block content %}
+{% include 'books/navbar.html' %}
+<div class="container">
+    <div class="row">
+    <h1 class="m-5">Thanks for your feedback</h1>
+        <p><a href="{% url 'books:search' %}">Home</a></p>
+
+ </div>
+</div>
+
+
+
+
+{% endblock %}

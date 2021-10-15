@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title%}publishers{% endblock %}
+{% block content %}
+{% include 'books/navbar.html' %}
+<div class="row m-4">
+<center><h2>Publishers</h2></center>
+</div>
+
+<div class="container">
+
+<div class="col m-1">
+<ul class="list-unstyled" >
+
+{% for publisher in publishers %}
+    <li><a href="{{ publisher.get_absolute_url }}">{{ publisher.name }}</a></li>
+{% endfor %}
+ </ul>
+
+ </div>
+
+</div>
+
+
+
+
+
+{% endblock %}

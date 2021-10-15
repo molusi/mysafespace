@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title%}books_app{% endblock %}
+{% block content %}
+{% load static %}
+{% include 'books/navbar.html' %}
+{% static "images" as baseUrl %}
+<div class="row m-4">
+<center><h2>Authors</h2></center>
+</div>
+
+
+<div class="container">
+     <div class="col md-8">
+<ul class="list-unstyled" >
+
+{% for author in authors %}
+
+    <li><a href="{{ author.get_absolute_url }}">{{ author.salutation }} {{ author.name }}</a></li>
+
+
+{% endfor %}
+ </ul>
+
+
+ </div>
+</div>
+
+{% endblock %}

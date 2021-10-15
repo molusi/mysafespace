@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title%}books{% endblock %}
+{% block content %}
+{% load static %}
+{% include 'books/navbar.html' %}
+<div class="row m-2">
+<center><h2>Books</h2></center>
+</div>
+
+<div class="container ">
+
+  <div class="row">
+    {% include 'books/searchfunction.html' %}
+</div>
+
+
+    <div class="row">
+<ul class="list-unstyled" >
+    {% for book in books %}
+    <li><a href="{{ book.get_absolute_url }}" target="_blank">{{ book.title }}</a></li>
+
+    {% endfor %}
+
+ </ul>
+     </div>
+
+
+
+
+
+
+
+</div>
+
+{% endblock %}

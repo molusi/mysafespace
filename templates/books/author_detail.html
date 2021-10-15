@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title%}Author details{% endblock %}
+{% load static %}
+
+
+
+{% block content %}
+{% include 'books/navbar.html' %}
+<div class="container">
+    <div class="row mt-5">
+
+            <h4>{{ author.salutation }} {{ author.name }}</h4>
+
+        <div>
+               <a href="{{ author.headshot.url }}" target="_blank"><img src="{{ author.headshot.url }}" alt="Author headshot" width="160px" height="160px"></a>
+        </div>
+        <div class="row">
+            <p><b>About {{ author.salutation }} {{ author.name }}</b></p>
+            <p>
+                dfghjk fghjkltuio ertyuiol,wertyuiop tgbfv yhnjmg rfvujnikmkm
+                ujngbfvgb rtgyhujij hgfrf hnhhn rtyuiop ujm k,werghnmdfghnjmk, ertyuiop dfghjkl
+                wertyuiookjb kjhgvc.
+            </p>
+        </div>
+        <p>Contact details: {{ author.email }}</p>
+           <a href="../">Go back</a>
+
+
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load books_template_tags %}
+
+
+{% block title %} book_search {% endblock %}
+{% block content %}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col md-5 m-5 search">
+
+            <h1 style="color:orangered">Search for a book</h1>
+            <form action="{% url 'books:search' %}">
+                <div class="search-block row">
+                    <div class="col-md-6">
+                <span><input class="pt-1 pb-1" name="q" type="text" value="{{ query|escape }}">
+                <button class="btn pt-1 pb-1 btn-md btn-primary mt-0" type="submit">Search</button></span>
+                    </div>
+                 </div>
+            </form>
+
+        </div>
+ </div>
+</div>
+
+{% endblock %}
+
+

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}Search{% if query %} Results{% endif %}{% endblock %}
+
+{% block content %}
+{% include 'books/navbar.html' %}
+<div class="container">
+    <div class="row">
+     <div class="col m-1">
+
+ {% if query %}
+ <div class="row m-4">
+
+ {% if results %}
+ <h2>Results for "{{ query|escape }}":</h2>
+ <ul>
+ {% for book in results %}
+   <li><a href="{% url 'books:book_detail' pk=book.id%}">{{ book|escape }}</a></li>
+
+ </ul>
+
+ {% endfor %}
+
+ {% else %}
+ <center><span><a class="nobookslink" href="{% url 'books:home' %}">Go back</a><h4 class="nobooks">No books found .....</h4></span></center>
+
+</div>
+{% endif %}
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+     </div>
+ </div>
+</div>
+
+
+
+
+{% endblock %}
