@@ -91,7 +91,6 @@ def createaccount(request):
             form = CreateuserForm(request.POST)
             if form.is_valid():
                 form.save()
-                messages.info(request,"Account was created successfully.")
                 return redirect(reverse_lazy("accounts:person_login"))
             else:
                 form.errors
