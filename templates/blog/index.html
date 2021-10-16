@@ -96,8 +96,10 @@
             <!-- Featured blog post-->
             <div class="col-md-11 card mb-5 col-sm-8" style="max-height:100%">
                 {% if article.image %}
-                <a href="{{ article.image.url }}" target="_blank">
-                    <img class="card-img-top" src="{{ article.image.url }}" width="100px" height="250px" alt="supportingimage">
+                <a href="{% static 'article.image' %}" target="_blank">
+                    
+
+                    <img class="card-img-top" src="{% static 'article.image' %}" width="100px" height="250px" alt="supportingimage">
                 </a>
                 {% endif %}
                 <div class="card-body">
