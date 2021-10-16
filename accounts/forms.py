@@ -11,8 +11,8 @@ User = get_user_model()
 
 
 class CreateuserForm(UserCreationForm):
-    email = forms.EmailField(widget=forms.TextInput(attrs={'class':'input','placeholder':'Email'}))
-    password1 = forms.CharField(widget=forms.PasswordInput(attrs={'class':'input','placeholder':'Password'}))
+    email = forms.EmailField(widget=forms.TextInput(attrs={'class':'input','id':'email-input','placeholder':'Email'}))
+    password1 = forms.CharField(widget=forms.PasswordInput(attrs={'class':'input','id':'password-input','placeholder':'Password'}))
     password2 = forms.CharField(widget=forms.PasswordInput(attrs={'class':'input','placeholder':'Confirm Password'}))
 
     class Meta:
@@ -22,8 +22,8 @@ class CreateuserForm(UserCreationForm):
 
 
 class UserForm(forms.ModelForm):
-    email = forms.EmailField(widget=forms.TextInput(attrs={'class': 'input','placeholder':'Email'}))
-    password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'input','placeholder':'Password'}))
+    email = forms.EmailField(widget=forms.TextInput(attrs={'class': 'input','id':'email-input','placeholder':'Email'}))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'input','id':'password-input','placeholder':'Password'}))
 
     class Meta:
         model = User
