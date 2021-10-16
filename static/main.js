@@ -20,9 +20,9 @@ function onSubmit(e){
   e.preventDefault();
   if(emailInput.value === '' || passwordInput.value ===''){
   mSg.classList.add('is-danger');
-    mSg.innerHTML = "Please enter all fields"
+    mSg.innerHTML = "Please enter all fields";
     setTimeout(()=>msg.remove(),3000)
-  };
+  }};
 
 
 const control = document.querySelectorAll(".input");
