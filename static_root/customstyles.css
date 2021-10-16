@@ -36,7 +36,12 @@ max-height:90%;
  font-size:0.85em;
  }
 
-
+.is-success{
+ border: 1px solid ;
+ padding:9px;
+ color:yellow;
+ font-size:0.85em;
+ }
  .input{
  diplay:block;
  width:100%;
