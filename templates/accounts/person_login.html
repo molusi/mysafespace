@@ -28,8 +28,10 @@
 
             <div class="field">
                 <div class="input-container control">
+                    {% if messages %}
                    
-                   <p class="help is-danger">{% for message in messages %}{{ message }}</p> {% endfor %} 
+                   <p class="help is-danger">{% for message in messages %}{{ message }} {% endfor %} </p> 
+                    {% endif %}
                 </div>
                 <div class="input-container control">
 
