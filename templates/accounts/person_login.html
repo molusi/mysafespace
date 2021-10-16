@@ -39,7 +39,7 @@
             </div>
                 <div class="field">
                     <div class="input-container control">{{ form.password }}
-                    {% for error in form.password.errors %}<p class="is-success">{{error}}</p> {% endfor %}
+                    {% for error in form.password.errors %}<p class="help is-danger">{{error}}</p> {% endfor %}
                     </div>
                 </div>
             <center>
