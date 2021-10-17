@@ -3,6 +3,7 @@
 {% block title%}books{% endblock %}
 {% block content %}
 {% include 'books/navbar.html' %}
+<div class="container" style="height:95%;width:75%;margin:0 auto">
 
 
 {% include 'books/searchfunction.html' %}
@@ -14,5 +15,5 @@
 <a href="{% url 'books:publishers' %}" ><h4>Publishers</h4></a>
     </div>
 </div>
-
+</div>
 {% endblock %}
