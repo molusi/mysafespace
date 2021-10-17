@@ -76,7 +76,7 @@ def person_login(request):
             user = authenticate(request, email=email,password=password)
             if user is not None:
                 login(request,user)
-                return redirect('blog:home')
+                return redirect('todo_app:home')
             else:
                 messages.error(request,'Invalid credentials')
         return render(request, 'accounts/person_login.html',{"form":form})
