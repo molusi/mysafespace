@@ -1,4 +1,5 @@
 from django.urls import path
+from nkunzi import settings
 
 from . import views
 from .views import userprofileview,UserProfileUpdateView, MyPostsView, articlecreateview,ArticleUpdateView, ArticleDeleteView, ArticleDetailView, SearchView
