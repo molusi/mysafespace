@@ -98,9 +98,9 @@
                 {% if article.image %}
                 <img src= alt="Hi!" />
 
-                
-                    <img class="card-img-top" src="{% static 'blog_images/article.image.url' %}" width="100px" height="250px" alt="supportingimage">
-                    
+                <a href="{{ article.image.url }}" target="_blank">
+                    <img class="card-img-top" src="{{ article.image.url }}"  width="100px" height="250px" alt="supportingimage">
+                 </a>  
                 
                 {% endif %}
                 <div class="card-body">
