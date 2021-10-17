@@ -98,10 +98,10 @@
                 {% if article.image %}
                 <img src= alt="Hi!" />
 
-                <a href='media/blog_images/article.image.url' target="_blank">
-                    <img class="card-img-top" src='media/blog_images/article.image.url' width="100px" height="250px" alt="supportingimage">
+                
+                    <img class="card-img-top" src="{% static 'blog_images/article.image.url' %}" width="100px" height="250px" alt="supportingimage">
                     
-                </a>
+                
                 {% endif %}
                 <div class="card-body">
                     <div class="small text-muted">{{ article.created }}
