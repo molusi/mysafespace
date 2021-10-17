@@ -14,7 +14,7 @@
 {% endfor %}
 {% endif %}
 
-<div class="container">
+<div class="container" style="min-height:90%;margin:0 auto;max-height:90%">
 
     <div class="row">
 
@@ -43,7 +43,7 @@
             {% for todo in todos %}
 
 
-            <li><a href="{{ todo.get_absolute_url }}"><b>{{ todo.title }}</b>
+            <div class="row"><li><a href="{{ todo.get_absolute_url }}"><b>{{ todo.title }}</b>
 
 
                 <form action="{% url 'todo_app:delete_todo' todo.id %}"  method="post" style="float:right">
@@ -55,9 +55,10 @@
 
 
             </a>
-                <p><small>Created: {{todo.created}}</small></p>
+                <small>Created: {{todo.created}}</small>
 
             </li>
+                </div>
 
 
 
