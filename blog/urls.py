@@ -22,6 +22,5 @@ urlpatterns = [
     path('<int:pk>/update/',ArticleUpdateView.as_view(),name='update'),
     path('<int:pk>/delete/',ArticleDeleteView.as_view(),name='delete'),
     ]
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
 
