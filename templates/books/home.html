@@ -3,22 +3,12 @@
 {% block title%}books{% endblock %}
 {% block content %}
 {% include 'books/navbar.html' %}
-<div class="container" style="height:95%;width:75%;margin:0 auto">
+<div class="container" style="height:100vh;width:75%;margin:0 auto">
 
 
   <div class="row">
-        <div class="col md-5 m-5 search">
-
-            <h1 style="color:orangered">Search for a book</h1>
-            <form action="https://www.pdfdrive.com/">
-                <div class="search-block row">
-                    <div class="col-md-6">
-                <span><input class="pt-1 pb-1" name="q" type="text">
-                <button class="btn pt-1 pb-1 btn-md btn-primary mt-0" type="submit">Search</button></span>
-                    </div>
-                 </div>
-            <form>
-
+        <div class="col md-6 offset-3 search">
+            <a href="https://www.pdfdrive.com/"><h1 style="color:orangered">Search for a book</h1></a>          
         </div>
  </div>
 
