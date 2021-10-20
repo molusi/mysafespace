@@ -18,7 +18,7 @@
 
     <div class="row">
 
-        <fieldset class="m-2 col-6 md-6 sm-4" style="margin:10px auto" >
+        <fieldset class="m-2 col-md-8 sm-4 offset-2" style="margin:10px auto" >
 
             <form method="POST" action="{% url 'todo_app:add_todo' %}" class="m-2">
                 {% csrf_token %}
