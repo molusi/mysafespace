@@ -18,7 +18,7 @@
 
     <div class="container" style="display:flex;flex-direction:column;justify-content:space-between;align-items:center">
 
-        <fieldset class="m-2 col-md-8 sm-4 " style="margin:5px auto;border-radius:6px" >
+        <fieldset class="m-2 col-md-8 sm-4 " style="margin:0 auto;border-radius:8px" >
 
             <form method="POST" action="{% url 'todo_app:add_todo' %}" class="m-2">
                 {% csrf_token %}
@@ -26,9 +26,14 @@
                 <button class="btn btn-primary" type="submit">add todo</button>
             </form>
         </fieldset>
+        
+       {% if empty %}
+<div class="alert alert-info" role="alert">
+    <p>Looks like you don't have anything in your todo list..add a few items..</p>
+</div>
     
 
-    {% if todos %}
+    {% else %}
 
 
 
@@ -69,10 +74,7 @@
 </div>
 
 
-{% else %}
-<div class="alert alert-info" role="alert">
-    <p>Looks like you don't have anything in your todo list..add a few items..</p>
-</div>
+
 
 {% endif %}
 
