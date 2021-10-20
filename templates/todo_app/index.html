@@ -42,7 +42,7 @@
             {% for todo in todos %}
 
 
-            <div class="row"><li><a href="{{ todo.get_absolute_url }}"><b>{{ todo.title }}</b>
+            <div class="row"><center><li><a href="{{ todo.get_absolute_url }}"><b>{{ todo.title }}</b>
 
 
                 <form action="{% url 'todo_app:delete_todo' todo.id %}"  method="post" style="float:right">
@@ -56,7 +56,7 @@
             </a>
                 <small style="display:block">Created: {{todo.created}}</small>
 
-            </li>
+            </li></center>
                 </div>
 
 
