@@ -16,7 +16,7 @@
 
 <div class="container" style="height:auto;margin:20px auto;width:85%;">
 
-    <div class="row" style="display:flex;justify-content:center">
+    <div class="container" style="display:flex;flex-direction:column;justify-content:space-between">
 
         <fieldset class="m-2 col-md-8 sm-4 " style="margin:10px auto" >
 
@@ -26,14 +26,14 @@
                 <button class="btn btn-primary" type="submit">add todo</button>
             </form>
         </fieldset>
-    </div>
+    
 
     {% if todos %}
 
 
 
    
-<div class="col-md-8 sm-4" style='margin:20px auto;display:flex;flex-direction:column;'>
+<div class="col-md-8 sm-4" >
     
 
 
@@ -42,7 +42,7 @@
             {% for todo in todos %}
 
 
-            <div class="row"><center><li><a href="{{ todo.get_absolute_url }}"><b>{{ todo.title }}</b>
+            <div class="row"><li><a href="{{ todo.get_absolute_url }}"><b>{{ todo.title }}</b>
 
 
                 <form action="{% url 'todo_app:delete_todo' todo.id %}"  method="post" style="float:right">
@@ -56,7 +56,7 @@
             </a>
                 <small style="display:block">Created: {{todo.created}}</small>
 
-            </li></center>
+            </li>
                 </div>
 
 
@@ -66,7 +66,7 @@
 
 
 
-
+</div>
 
 
 {% else %}
