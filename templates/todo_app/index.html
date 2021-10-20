@@ -18,7 +18,7 @@
 
     <div class="container" style="display:flex;flex-direction:column;justify-content:auto;align-items:center">
 
-        <fieldset class="m-2 col-md-8 sm-4 " style="margin:0 auto;border-radius:8px" >
+        <fieldset class="my-3 col-md-8 sm-4 " style="margin:0 auto;border-radius:8px" >
 
             <form method="POST" action="{% url 'todo_app:add_todo' %}" class="m-2">
                 {% csrf_token %}
@@ -56,7 +56,7 @@
 
 
             </a>
-                <small style="display:block">Created: {{todo.created}}</small>
+                <small style="display:inline-block;max-width:40%;font-size:0.6rem">Created: {{todo.created}}</small>
 
             </li>
                 </div>
