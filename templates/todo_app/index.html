@@ -18,7 +18,7 @@
 
     <div class="container" style="display:flex;flex-direction:column;justify-content:space-between;align-items:center">
 
-        <fieldset class="m-2 col-md-8 sm-4 " style="margin:10px auto" >
+        <fieldset class="m-2 col-md-8 sm-4 " style="margin:10px auto;border-radius:6px" >
 
             <form method="POST" action="{% url 'todo_app:add_todo' %}" class="m-2">
                 {% csrf_token %}
@@ -42,7 +42,7 @@
             {% for todo in todos %}
 
 
-            <div class="row"><li><a href="{{ todo.get_absolute_url }}"><b>{{ todo.title }}</b>
+            <div class="row mx-3"><li><a href="{{ todo.get_absolute_url }}"><b>{{ todo.title }}</b>
 
 
                 <form action="{% url 'todo_app:delete_todo' todo.id %}"  method="post" style="float:right">
