@@ -30,6 +30,19 @@ class Article(models.Model):
 
     def get_absolute_url(self):
         return reverse('blog:detail',kwargs={'pk': self.id})
+    
+    class Comment(models.Model):
+    content = models.TextField()
+    article = models.ForeignKey(Article,on_delete=models.CASCADE)
+    author = models.ForeignKey("Userprofile",on_delete=models.CASCADE)
+    published = models.DateField(auto_now_add=True)
+    hide = models.BooleanField(default=False)
+
+    class meta:
+        ordering:("published",)
+
+    def __str__(self):
+        return "comment"
 
 
 
