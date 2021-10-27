@@ -19,6 +19,7 @@ urlpatterns = [
     path('search/',SearchView.as_view(),name="search"),
     path('<int:pk>/detail/',ArticleDetailView.as_view(),name='detail'),
     path('<int:pk>/update/',ArticleUpdateView.as_view(),name='update'),
+    path('<int:pk>/commentupdate/',views.commentupdate,name='comment_update'),
     path('<int:pk>/delete/',ArticleDeleteView.as_view(),name='delete'),
     ]
 
