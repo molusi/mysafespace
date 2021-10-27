@@ -19,6 +19,12 @@ CATEGORY_CHOICES = (
     ('h','health')
 )
 
+class CommentForm(forms.ModelForm):
+    content = forms.CharField(widget=forms.Textarea(attrs={'label':"comment","rows":"1","cols":3,"class":"form-control","placeholder":"add comment..."}))
+
+    class Meta:
+        model = Comment
+        fields = ['content']
 
 class ArticleForm(forms.Form):
     title = forms.CharField(widget=forms.TextInput(attrs={'placeholder':'title','class':'px-2'}))
