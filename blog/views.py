@@ -138,6 +138,28 @@ def articlecreateview(request,*args,**kwargs):
     return render(request, "blog/article_create.html", context)
 
 
+def commentupdate(request,pk,*args,**kwargs):
+    comment_ = get_object_or_404(Comment,id=pk)
+    article_ = comment_.article
+    initial_data = {"content":comment_.content}
+    form = CommentForm(request.POST or None, initial=initial_data)
+    context = {"comment": comment_,"article": article_,"form":form}
+    if request.method == 'POST':
+        form = CommentForm(request.POST,initial=initial_data)
+        if form.is_valid():
+            content = form.cleaned_data.get("content")
+            comment = Comment()
+            comment.content = content
+            comment.article = article_
+            comment.author=comment_.author
+            comment.save()
+            return HttpResponseRedirect(reverse("blog:detail",kwargs={"pk":article_.pk}))
+        else:
+            form.errors
+    else:
+        form=CommentForm()
+    return render(request,"blog/articledetail.html",context)
+
 
 
 
