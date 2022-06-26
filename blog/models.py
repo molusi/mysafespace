@@ -3,6 +3,7 @@ from django.db import models
 from django.conf import settings
 from django.urls import reverse
 from django.utils import timezone
+from cloudinary.models import CloudinaryField
 
 import accounts.models
 from accounts.models import User
@@ -19,7 +20,7 @@ CATEGORY_CHOICES = (
 
 class Article(models.Model):
     title = models.CharField(max_length=255)
-    image = models.ImageField(upload_to='blog_images',blank=True,null=True)
+    image = CloudinaryField('blog_image',blank=True,null=True)
     content = models.TextField()
     category = models.CharField(choices=CATEGORY_CHOICES,max_length=2)
     author = models.ForeignKey("Userprofile",on_delete=models.SET_NULL,blank=True,null=True)
@@ -30,8 +31,8 @@ class Article(models.Model):
 
     def get_absolute_url(self):
         return reverse('blog:detail',kwargs={'pk': self.id})
-    
-    class Comment(models.Model):
+
+class Comment(models.Model):
     content = models.TextField()
     article = models.ForeignKey(Article,on_delete=models.CASCADE)
     author = models.ForeignKey("Userprofile",on_delete=models.CASCADE)
@@ -52,7 +53,7 @@ class Article(models.Model):
 class Userprofile(models.Model):
     preffered_name = models.CharField(max_length=255,null=True)
     user = models.OneToOneField(User,on_delete=models.CASCADE)
-    profilepic = models.ImageField(upload_to="userprofiles",default="userprofiles/dp.JPG")
+    profilepic = CloudinaryField("userprofiles",default="userprofiles/dp.JPG")
     about = models.CharField(max_length=500,null=True)
     twitter = models.URLField(blank=True,null=True)
     instagram = models.URLField(blank=True, null=True)

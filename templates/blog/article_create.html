@@ -7,15 +7,13 @@
 
 {% if messages %}
 {% for message in messages %}
-<div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-    <button onclick="cloze()" type="button" class="btn close cloze" data-dismiss="alert" aria-label="close"><span
-            aria-hidden="true"><b>x</b></span></button>
+<div class=" mt-2 alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
     {{ message }}
 </div>
 {% endfor %}
 
 {% endif %}
-<div class="container" height="100vh">
+<div class="container" height="100vh" style="overflow:auto;padding-bottom:100px">
 <div class="col-md-7 my-5 ">
 <form action="." method="post" enctype="multipart/form-data">
     {% csrf_token %}
@@ -31,7 +29,7 @@
     <label class="pb-2 mt-2" for="image" ><b>Attach image</b></label><br>
    <input  type="file" name="image" accept="image/jpeg">
    <br>
-    <p class="my-2 p-2" >{{ form.content }}</p>
+    <p class="my-2 py-2" >{{ form.content }}</p>
 
 
 

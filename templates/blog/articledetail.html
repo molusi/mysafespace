@@ -4,7 +4,7 @@
 {% block content %}
 
 
-<div id="container" class="container my-5" style="max-width:90%;">
+<div id="container" class="container my-5" style="max-width:90%;overflow:auto;padding-bottom:100px">
 <div id="main">
 <div class="row">
     {% if article.image %}
@@ -42,11 +42,11 @@
 <div>
 
     <div class="col-md-3 my-3" style="display:flex;justify-content:space-around;align-items:center">
-    <a href="{{request.META.HTTP_REFERER|escape}}">Back</a><a href="{% url 'blog:home' %}" >Home</a>
+    <a href="{{request.META.HTTP_REFERER|escape}}" class="btn btn-sm btn-primary">Back</a><a href="{% url 'blog:home' %}" class="btn btn-sm  btn-primary" >Home</a>
     {% if request.user.email == article.author.user.email %}
 
-    <span><a href="{% url 'blog:update' article.pk %}">update</a></span><span><a
-        href="{% url 'blog:delete' article.pk %}">delete</a></span>
+    <span><a href="{% url 'blog:update' article.pk %}" class="btn btn-sm btn-primary">update</a></span><span><a
+        href="{% url 'blog:delete' article.pk %}" class="btn btn-danger btn-sm">delete</a></span>
 
     {% endif %}
 </div>
@@ -62,7 +62,7 @@
 
 
             {% if comment.author.user == request.user or article.author.user == request.user %}
-                <span class="my-0"><a href="{% url 'blog:comment_delete' comment.id %}" class="mt-0" style="font-size:0.7rem;color:green">delete</a>{% endif %}{% if comment.author.user == request.user %}{% csrf_token %}<a href="{% url 'blog:comment_update' comment.id %}" class="mx-2 my-0" style="font-size:0.7rem;color:green">edit</a>{% endif %}</span>
+                <span class="my-0"><a href="{% url 'blog:comment_delete' comment.id %}" class="mt-0 btn btn-sm btn-danger" >delete</a>{% endif %}{% if comment.author.user == request.user %}{% csrf_token %}<a href="{% url 'blog:comment_update' comment.id %}" class="mx-2 my-0 btn btn-sm btn-primary" >edit</a>{% endif %}</span>
             </div>
             {% endfor %}
 
@@ -70,16 +70,18 @@
         </ul>
         {% endif %}
         {% if user.is_authenticated %}
+    {% comment %}
         <form action="." method="POST">
             {% csrf_token %}
             <div class="input-group ">
-                {{ form.content }}
+               <p class="my-2 p-2" >{{ form.content }}</p>
                     <div class="input-group-append">
-                   <button class="btn btn-primary" id="button-submit" type="submit" >Post</button>
+                   <button class="btn btn-sm btn-primary" id="button-submit" type="submit" >Post</button>
                     </div>
             </div>
 
         </form>
+    {% endcomment %}
         {% endif %}
     </div>
 

@@ -5,7 +5,7 @@
 {% block content %}
 
 
-<div class="container mt-5 mb-5" style="height:100vh max-height:90%">
+<div class="container mt-5 mb-5" style="height:100vh max-height:90%;overflow:auto;padding-bottom:100px">
     <div class="col-md-8 mt-1">
 
 
@@ -13,7 +13,7 @@
             {% csrf_token %}
 
 
-            <p class="mb-3 px-2">{{ form.preffered_name }}</p>
+            <p class="mb-3 px-2 ">{{ form.preffered_name }}</p>
 
 
 
@@ -23,16 +23,16 @@
             <p class ="my-2 px-2" >{{ form.about }}</p>
             <p class ="my-2 px-2" >{{ form.content}}</p>
             <p  class ="my-2 px-2" >Twitter: {{form.twitter}}</p>
-            <p class ="my-2 px-2" >Instagram: {{form.instagram}}</p>
+            <p class ="my-2 px-2 " >Instagram: {{form.instagram}}</p>
 
 
-            <button class="btn p-0 mt-0" type="submit" style="border-bottom: solid black;font-size:0.7em ">Update
+            <button class="btn btn-primary p-0 mt-0" type="submit" style="font-size:0.7em ">Update
             </button>
         </form>
 
 
 
-        <a href="{% url 'blog:home' %}" class="mt-1" style="font-size:0.9em">Home</a>
+        <a href="{% url 'blog:home' %}" class="mt-1 btn btn-primary" style="font-size:0.9em">Home</a>
     </div>
 
 </div>

@@ -1,6 +1,4 @@
 from django.urls import path
-
-
 from . import views
 from .views import userprofileview,UserProfileUpdateView, MyPostsView, articlecreateview,ArticleUpdateView, ArticleDeleteView, ArticleDetailView, SearchView
 from django.urls import path

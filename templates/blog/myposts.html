@@ -6,10 +6,8 @@
 
 
 
-<div class="container" style="height:auto">
-<div class="row mx-5 mt-5">
-    <a href="{% url 'blog:article-create' %}" class="pb-3" >Add article</a>
-</div>
+<div class="container" style="height:auto;overflow:auto;min-height:100%">
+
 
 
     {% if articles %}
@@ -17,9 +15,9 @@
 
 {% for article in articles %}
 
-<div class="container" style="display:flex;flex-direction:column;margin:auto;flex-wrap:wrap;max-height:100%">
+<div class="container" style="padding-top:5rem;display:flex;flex-direction:column;flex-wrap:wrap;max-height:100%">
 
-    <div class="card mb-4 col-md-7 ">
+    <div class="card mb-2 col-md-7">
         <div class="col md-12" style="display:flex">
             {% if article.image %}
         <div class="col-md-6">
@@ -50,8 +48,7 @@
 {% else %}
 
 
-<div class="alert alert-primary alert-dismissible fade show" role="alert">
-    <button onclick="cloze()" type="button" class="btn close cloze" data-dismiss="alert" aria-label="close"><span aria-hidden="true"><b>x</b></span></button>
+<div class="mt-2 alert alert-primary alert-dismissible fade show" role="alert">
 <h3>Your audience is waiting for your content,add your first article.. </h3>
 </div>
 
@@ -60,8 +57,11 @@
 
 
 
-
+<div class="row mx-5 my-5">
+    <a href="{% url 'blog:article-create' %}" class="pb-3 btn btn-primary" >Add article</a>
+</div>
  </div>
+
 {% endblock %}
 
 

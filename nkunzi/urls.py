@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
-
+from blog import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,6 +25,8 @@ urlpatterns = [
     path('todo_app',include('todo_app.urls')),
     path('poll', include('poll.urls')),
     path('blog/', include('blog.urls')),
+    path('yvfoundation/', include('yvfoundation.urls')),
+    path('register',views.createaccount,name="create_account"),
     path('accounts/', include('accounts.urls')),
     path('books/', include('books.urls')),]
 if settings.DEBUG:

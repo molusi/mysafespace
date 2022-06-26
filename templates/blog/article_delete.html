@@ -17,13 +17,13 @@
 
 
 
-<div class="container mt-5 p-0" style="height:100vh">
+<div class="container mt-5 p-0" style="height:100vh;overflow:auto;padding-bottom:100px">
  <center><form action='.' method='POST'>
     {% csrf_token %}
      <div class="col-md-6 mx-3">
     <h1>Do you want to delete the post "{{ object.title }}"?</h1>
-    <button type="submit" class="btn btn-md btn-danger px-3 py-0">Yes</button>
-    <span><a href="{% url 'blog:detail' article.pk %}">cancel</a></span>
+    <button type="submit" class="btn btn-sm btn-danger ">Yes</button>
+    <span><a href="{% url 'blog:detail' article.pk %}" class="btn btn-sm btn-primary">cancel</a></span>
      </div>
 </form></center>
 

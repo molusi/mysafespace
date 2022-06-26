@@ -76,7 +76,7 @@ def person_login(request):
             user = authenticate(request, email=email,password=password)
             if user is not None:
                 login(request,user)
-                return redirect('todo_app:index')
+                return redirect('blog:home')
             else:
                 messages.error(request,'Invalid credentials')
         return render(request, 'accounts/person_login.html',{"form":form})
@@ -84,7 +84,7 @@ def person_login(request):
 
 def createaccount(request):
     if request.user.is_authenticated:
-        return redirect('blog:userprofile_create')
+        return redirect('blog:home')
     else:
         form = CreateuserForm()
         if request.method == 'POST':
@@ -95,6 +95,15 @@ def createaccount(request):
             else:
                 form.errors
         return render(request, 'accounts/register.html', {"form": form})
+
+@login_required
+def comment_createview(request,*args,**kwargs):
+    try:
+        userprofile = Userprofile.objects.get(user__email=request.user)
+    except ObjectDoesNotExist:
+        messages.info(request, 'Please complete your profile first...')
+        return redirect('blog:userprofile_create')
+
 
 
 @login_required

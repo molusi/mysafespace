@@ -12,7 +12,7 @@ User=get_user_model()
 
 
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ('author','created')
+    list_display = ('title','created')
 
 
 class UserprofileAdmin(admin.ModelAdmin):

@@ -9,7 +9,5 @@ app_name='accounts'
 
 urlpatterns = [
     path('',blog.views.person_login,name="person_login"),
-    path('register',views.createaccount,name="create_account"),
     path('logout/',logmeout,name='logout'),
-
     ]

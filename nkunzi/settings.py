@@ -14,6 +14,7 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 import bootstrap4 as bootstrap4
+import cloudinary
 import django_heroku
 
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
@@ -43,24 +44,30 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 # False if not in os.environ because of casting above
-DEBUG = True
 
+from decouple import config
+
+SECRET_KEY = config("SECRET_KEY")
 # Raises Django's ImproperlyConfigured
 # exception if SECRET_KEY not in os.environ
-SECRET_KEY = 'xdf&5o%ysfs)&0xugnza=4r-3ih0#jc!_0&47np)+qusuxho)-'
+SECRET_KEY = config("SECRET_KEY")
+DEBUG = config("DEBUG")
+
+
+cloudinary.config(
+  cloud_name = config("cloud_name"),
+  api_key =config("api_key"),
+  api_secret = "api_secret"
+)
 
 
 
-
-
-
-ALLOWED_HOSTS = ['.herokuapp.com']
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -71,15 +78,16 @@ INSTALLED_APPS = [
     'poll.apps.PollConfig',
     'books.apps.BooksConfig',
     'blog.apps.BlogConfig',
+    'yvfoundation.apps.YvfoundationConfig',
     'accounts.apps.AccountsConfig',
     'crispy_forms',
+
 
 ]
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 AUTH_USER_MODEL = 'accounts.User'
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -121,11 +129,11 @@ WSGI_APPLICATION = 'nkunzi.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd5u1g2pu10o6p4',
-        'USER':'baxupikqqnokim',
-        'PASSWORD':'510a5c1e542f4ee5176e24e0c9f49d5b748f823c2251c316dc6d16a0c49aee00',
-        'HOST':'ec2-54-147-76-191.compute-1.amazonaws.com',
-        'PORT':'5432',
+        'NAME': 'Nkunzi',
+        'USER': 'postgres',
+        'PASSWORD':'Abigailmolusi28!',
+        'HOST':'localhost',
+        'PORT':'5433',
     }
 }
 
@@ -163,10 +171,15 @@ USE_L10N = True
 
 USE_TZ = True
 
-STATICFILES_STORAGE =  'whitenoise.storage.CompressedManifestStaticFilesStorage'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_URL = '/staticfiles/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_DIR = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [STATIC_DIR, ]
+
+
+
+# STATICFILES_STORAGE =  'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_URL = '/static/'
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 MEDIA_ROOT = MEDIA_DIR

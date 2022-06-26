@@ -21,15 +21,14 @@ CATEGORY_CHOICES = (
 
 class CommentForm(forms.ModelForm):
     content = forms.CharField(widget=forms.Textarea(attrs={'label':"comment","rows":"1","cols":3,"class":"form-control","placeholder":"add comment..."}))
-
     class Meta:
         model = Comment
         fields = ['content']
 
 class ArticleForm(forms.Form):
-    title = forms.CharField(widget=forms.TextInput(attrs={'placeholder':'title','class':'px-2'}))
+    title = forms.CharField(widget=forms.TextInput(attrs={'placeholder':'title','class':'px-2 form-control'}))
     category = forms.ChoiceField(choices=CATEGORY_CHOICES)
-    content = forms.CharField(widget=forms.Textarea(attrs={"rows":12,"cols":60,'class':'px-2','placeholder':'content'}))
+    content = forms.CharField(widget=forms.Textarea(attrs={"rows":12,"cols":60,'class':'px-2 form-control','placeholder':'content'}))
 
 
 
@@ -40,7 +39,7 @@ class ArticleForm(forms.Form):
 
 class ArticleModelForm(forms.ModelForm):
     content = forms.CharField(
-        widget=forms.Textarea(attrs={'class': 'px-2'}))
+        widget=forms.Textarea(attrs={'class': 'px-2 form-control'}))
     category = forms.ChoiceField(choices=CATEGORY_CHOICES)
 
     class Meta:
@@ -52,14 +51,16 @@ class ArticleModelForm(forms.ModelForm):
 
 
 class UserProfileForm(forms.Form):
-    preffered_name = forms.CharField(widget=forms.TextInput(attrs={'placeholder':'preffered name','class':'px-2'}),max_length=255)
-    about = forms.CharField(widget=forms.Textarea(attrs={"rows":3,"cols":25,"placeholder":"About you..","class":"px-2"}),max_length=400)
+    preffered_name = forms.CharField(widget=forms.TextInput(attrs={'placeholder':'preffered name','class':'px-2 form-control'}),max_length=255)
+    about = forms.CharField(widget=forms.Textarea(attrs={"rows":3,"cols":25,"placeholder":"About you..","class":"px-2 form-control"}),max_length=400)
     class Meta:
         model = Userprofile
         fields = ['preffered_name','profilepic','about','user','twitter','instagram']
 
 class UserProfileUpdateForm(forms.ModelForm):
-    about = forms.CharField(widget=forms.Textarea(attrs={"rows":3,"cols":25,"placeholder":"About you..","class":"px-2"}),max_length=400)
+    preffered_name = forms.CharField(
+        widget=forms.TextInput(attrs={'placeholder': 'preffered name', 'class': 'px-2 form-control'}), max_length=255)
+    about = forms.CharField(widget=forms.Textarea(attrs={"rows":3,"cols":25,"placeholder":"About you..","class":"px-2 form-control"}),max_length=400)
     class Meta:
         model = Userprofile
         fields = ['preffered_name','profilepic', 'about','twitter','instagram']
