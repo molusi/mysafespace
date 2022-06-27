@@ -57,7 +57,7 @@ DEBUG = True
 cloudinary.config(
   cloud_name = config("cloud_name"),
   api_key =config("api_key"),
-  api_secret = "api_secret"
+  api_secret = config("api_secret")
 )
 
 
@@ -129,12 +129,12 @@ WSGI_APPLICATION = 'nkunzi.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd98dsa575ab2o5',
-        'USER': 'xoyndygfsogoho',
-        'PASSWORD':'bf784a63bc721c4eac6fa8710559fc6e462230cf7ff46c8e1bbd275279b4ba38',
-        'HOST':'ec2-44-205-41-76.compute-1.amazonaws.com',
-        'PORT':'5432',
+        'ENGINE': config('ENGINE'),
+        'NAME': config('NAME'),
+        'USER': config('USER'),
+        'PASSWORD':config('PASSWORD'),
+        'HOST':config('HOST'),
+        'PORT':config('PORT'),
     }
 }
 
