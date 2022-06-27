@@ -53,7 +53,7 @@ class Comment(models.Model):
 class Userprofile(models.Model):
     preffered_name = models.CharField(max_length=255,null=True)
     user = models.OneToOneField(User,on_delete=models.CASCADE)
-    profilepic = CloudinaryField("userprofiles",blank=True,null=True)
+    profilepic = CloudinaryField("userprofiles",default="userprofiles/dp.JPG")
     about = models.CharField(max_length=500,null=True)
     twitter = models.URLField(blank=True,null=True)
     instagram = models.URLField(blank=True, null=True)
