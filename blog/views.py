@@ -90,9 +90,7 @@ def createaccount(request):
         if request.method == 'POST':
             form = CreateuserForm(request.POST)
             if form.is_valid():
-                email = form.cleaned_data.get('email')
-                password2 = form.cleaned_data.get('password1')
-                createuser =User(email=email,password=password2)
+                form.save()
                 return redirect(reverse_lazy("accounts:person_login"))
             else:
                 form.errors
