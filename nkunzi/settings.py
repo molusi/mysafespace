@@ -51,7 +51,7 @@ SECRET_KEY = config("SECRET_KEY")
 # Raises Django's ImproperlyConfigured
 # exception if SECRET_KEY not in os.environ
 SECRET_KEY = config("SECRET_KEY")
-DEBUG = config("DEBUG")
+DEBUG = False
 
 
 cloudinary.config(
@@ -130,11 +130,11 @@ WSGI_APPLICATION = 'nkunzi.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'Nkunzi',
-        'USER': 'postgres',
-        'PASSWORD':'Abigailmolusi28!',
-        'HOST':'localhost',
-        'PORT':'5433',
+        'NAME': 'd98dsa575ab2o5',
+        'USER': 'xoyndygfsogoho',
+        'PASSWORD':'bf784a63bc721c4eac6fa8710559fc6e462230cf7ff46c8e1bbd275279b4ba38',
+        'HOST':'ec2-44-205-41-76.compute-1.amazonaws.com',
+        'PORT':'5432',
     }
 }
 
