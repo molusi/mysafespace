@@ -51,7 +51,7 @@ SECRET_KEY = config("SECRET_KEY")
 # Raises Django's ImproperlyConfigured
 # exception if SECRET_KEY not in os.environ
 SECRET_KEY = config("SECRET_KEY")
-DEBUG = False
+DEBUG = True
 
 
 cloudinary.config(
