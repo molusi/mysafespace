@@ -6,7 +6,7 @@
 
 
 
-<div class="container" style="height:auto;overflow:auto;min-height:100%">
+<div class="container" style="height:auto;overflow:auto;min-height:100%;display:flex;flex-direction:column;flex-wrap:wrap;">
 
 
 
@@ -15,16 +15,16 @@
 
 {% for article in articles %}
 
-<div class="container" style="padding-top:5rem;display:flex;flex-direction:column;flex-wrap:wrap;max-height:100%;auto-flow:auto">
-
-    <div class="card mb-2 col-md-7" style="auto-flow:auto" >
-        <div class="col md-12" style="display:flex">
+<div class="container" style="padding-top:5rem;height:auto;overflow:auto">
+div class='row'>
+    <div class="card mb-2 col-md-7" style="overflow:auto" >
+        <div class="col-12">
             {% if article.image %}
         <div class="col-md-6">
 
         <h2 class="card-title h4"><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></h2>
 
-        <a href="{{ article.image.url }}" target="_blank"><img class="card-img-top" src="{{ article.image.url }}" width="200px" height="350px" alt="..." /></a>
+        <a href="{{ article.image.url }}" target="_blank"><img class="card-img-top" src="{{ article.image.url }}" width="200px" style="float:left"  height="350px" alt="supporting image" /></a>
 <div class="small text-muted m-2">{{ article.created }}</div>
         </div>
 
@@ -42,7 +42,7 @@
 
 
     </div>
-
+</div>
 </div>
 {% endfor %}
 {% else %}
