@@ -22,13 +22,17 @@
         
 <div class="row">
     {% if article.image %}
-    <div class="col-md-4 ">
-        <h1 class="card-title mb-1"><center>{{ article.title }}</center></h1>
+    <div class="col-md-5 ">
+        <div class="row">
+        
+        <h2 class="card-title h4 mb-1" style="text-align:center;cursor:pointer"><a href="{{ article.get_absolute_url }}">{{ article.title.title }}</a></h2>
+            
+        </div>
 
         <a href="{{ article.image.url }}" target="_blank"><img class="card-img-top" src="{{ article.image.url }}" width="200px" height="350px" alt="..."/></a>
 
     </div>
-  <div class="col-md-8 px-4 py-2 mt-5" >
+  <div class="col-md-7 px-4 py-2 mt-5" >
         {{ article.content }}
     </div>
             
