@@ -19,16 +19,15 @@
 
     <div class="card mb-2 col-md-7" style="overflow:auto" >
         <div class="col-12">
-           <p> {% if article.image %}
-        <div class="col-md-6">
+            {% if article.image %}
+        
 
         <h2 class="card-title h4"><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></h2>
 
-        <a href="{{ article.image.url }}" target="_blank"><img class="card-img-top" src="{{ article.image.url }}" width="200px" style="float:left"  height="350px" alt="supporting image" /></a>
+        <p class="mb-1 mt-1 mx-4" >{{ article.content }}<a href="{{ article.image.url }}" target="_blank"><img class="card-img-top" src="{{ article.image.url }}" width="200px" style="float:left"  height="350px" alt="supporting image" /></a>
 <div class="small text-muted m-2">{{ article.created }}</div>
-        </div> <span class="mb-1 mt-1 mx-4" >{{ article.content }}</span>
-                <span>{{ article.created }}</span>
-</p>
+        
+
 
             {% else %}
 
@@ -36,7 +35,7 @@
                 <h2 class="card-title mx-5"><center><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></center></h2>
             {% endif %}
 
-              <p class="mb-1 mt-1 mx-4" >{{ article.content }}</p>
+              </p>
                 <p>{{ article.created }}</p>
 
 
