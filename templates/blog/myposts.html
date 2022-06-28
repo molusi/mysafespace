@@ -17,7 +17,7 @@
 
 <div class="container" style="padding-top:5rem;display:flex;flex-direction:column;flex-wrap:wrap;max-height:100%;auto-flow:auto">
 
-    <div class="card mb-2 col-md-7">
+    <div class="card mb-2 col-md-7" style="auto-flow:auto" >
         <div class="col md-12" style="display:flex">
             {% if article.image %}
         <div class="col-md-6">
@@ -34,7 +34,7 @@
                 <h2 class="card-title mx-5"><center><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></center></h2>
             {% endif %}
 
-              <p class="mb-1 mt-1 mx-4">{{ article.content }}</p>
+              <p class="mb-1 mt-1 mx-4" >{{ article.content }}</p>
 
 
             </div>
