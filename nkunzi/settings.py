@@ -16,6 +16,7 @@ from pathlib import Path
 import bootstrap4 as bootstrap4
 import cloudinary
 import django_heroku
+import dj_database_url
 
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 
@@ -126,17 +127,19 @@ WSGI_APPLICATION = 'nkunzi.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-
 DATABASES = {
-    'default': {
-        'ENGINE': config('ENGINE'),
-        'NAME': config('NAME'),
-        'USER': config('USER'),
-        'PASSWORD':config('PASSWORD'),
-        'HOST':config('HOST'),
-        'PORT':config('PORT'),
-    }
+    'default': dj_database_url.config()
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': config('ENGINE'),
+#         'NAME': config('NAME'),
+#         'USER': config('USER'),
+#         'PASSWORD':config('PASSWORD'),
+#         'HOST':config('HOST'),
+#         'PORT':config('PORT'),
+#     }
+# }
 
 
 
